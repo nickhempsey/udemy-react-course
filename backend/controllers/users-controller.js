@@ -28,7 +28,10 @@ const userLogIn = async (req, res, next) => {
 		return next(new HttpError("Could not log you in.", 401));
 	}
 
-	res.status(200).json({ message: "logged in!" });
+	res.status(200).json({
+		message: "logged in!",
+		user: existingUser.toObject({ getters: true }),
+	});
 };
 
 const userSignUp = async (req, res, next) => {

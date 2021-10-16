@@ -58,6 +58,8 @@ const createPlace = async (req, res, next) => {
 
 	const { title, description, location, address, creator } = req.body;
 
+	console.log(req.body);
+
 	let coordinates;
 
 	try {
@@ -86,6 +88,7 @@ const createPlace = async (req, res, next) => {
 	}
 
 	if (!user) {
+		console.log(createdPlace);
 		return next(new HttpError("Failed to find a user", 404));
 	}
 
