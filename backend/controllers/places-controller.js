@@ -24,6 +24,8 @@ const getPlaceById = async (req, res, next) => {
 		);
 	}
 
+	console.log(place.toObject({ getters: true }));
+
 	res.json({ place: place.toObject({ getters: true }) });
 };
 
